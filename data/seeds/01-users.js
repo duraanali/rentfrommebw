@@ -9,7 +9,7 @@ exports.seed = function(knex) {
           "first_name": "Jessica",
           "last_name": "Qwerty",
           "email": "jessica@gmail.com",
-          "password": "qwerty",
+          "password": "$2a$08$VgTy64haCr29gafXgzNjGOn8uLIs4c4YKY6LTo0fsum2cYucuEBaa",
           "city": "Jersey City",
           "state": "NJ",
           "zip": "07306"
