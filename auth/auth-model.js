@@ -9,11 +9,11 @@ module.exports = {
 };
 
 function find() {
-  return db('users').select('id', 'email', 'password');
+  return db('users');
 }
 
 function findUsers() {
-    return db('users').select('id', 'email');
+    return db('users');
   }
 
 function findBy(filter) {
