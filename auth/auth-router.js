@@ -69,7 +69,7 @@ router.post('/register', (req, res) => {
   });
 
   //PUT
-  router.put('/user/:id', (req, res) => {
+  router.put('/user/:id', validateToken, (req, res) => {
     const changes = req.body;
     db.update(req.params.id, changes)
       .then(user => {
@@ -88,7 +88,7 @@ router.post('/register', (req, res) => {
   });
 
   //DELETE
-  router.delete('/user/:id', (req, res) => {
+  router.delete('/user/:id', validateToken, (req, res) => {
     db.destroy(req.params.id)
       .then(count => {
         if (count > 0) {

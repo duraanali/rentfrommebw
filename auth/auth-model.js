@@ -2,7 +2,6 @@ const db = require('../data/dbConfig.js');
 
 module.exports = {
   add,
-  find,
   findBy,
   findById,
   findUsers,
@@ -10,9 +9,6 @@ module.exports = {
   destroy
 };
 
-function find() {
-  return db('users');
-}
 
 function findUsers() {
     return db('users');
