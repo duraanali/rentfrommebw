@@ -70,4 +70,23 @@ router.post("/", validateToken, (req, res) => {
     }
   });
 
+  router.delete("/:id", validateToken, (req, res) => {
+    const { id } = req.params;
+    db.destroy(id)
+      .then(tool => {
+        if (tool) {
+          res.status(200).json({ message: `Tool id ${id} has been destroyed` });
+        } else {
+          res.status(404).json({
+            message: `Tool id ${id} not found`
+          });
+        }
+      })
+      .catch(error => {
+        res.status(500).json({
+          error: "error deleting tool"
+        });
+      });
+  });
+
 module.exports = router;

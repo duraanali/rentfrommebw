@@ -5,7 +5,8 @@ module.exports = {
     findTools,
     findToolsById,
     findToolsByUser,
-    insert
+    insert,
+    destroy
 }
 
 function findById(id) {
@@ -51,11 +52,13 @@ function findToolsById(id) {
           .from("conditions")
           .where("condition", tool.condition.toUpperCase())
       })
-    //   .then(ids => {
-    //     return findById(ids[0]);
-    //   });
   }
 
+  function destroy(id) {
+    return db('tools')
+      .where('id', id)
+      .del();
+  }
   //  function insert(tool) {
     // return db("tools")
     //   .insert({
