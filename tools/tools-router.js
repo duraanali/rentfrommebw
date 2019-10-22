@@ -49,13 +49,13 @@ router.get("/user/:id", (req, res) => {
 });
 
 
-router.post("/", (req, res) => {
+router.post("/", validateToken, (req, res) => {
     const tool = req.body;
   
     if (tool) {
       db.insert(tool)
         .then(tools => {
-          res.status(201).json(tools);
+          res.status(201).json({ message: "Listing created successfully!", tool });
         })
         .catch(err => {
             console.log(err)

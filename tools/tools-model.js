@@ -51,9 +51,9 @@ function findToolsById(id) {
           .from("conditions")
           .where("condition", tool.condition.toUpperCase())
       })
-      .then(ids => {
-        return findById(ids[0]);
-      });
+    //   .then(ids => {
+    //     return findById(ids[0]);
+    //   });
   }
 
   //  function insert(tool) {
