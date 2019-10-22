@@ -48,8 +48,26 @@ router.get("/user/:id", (req, res) => {
     .catch(err => res.send(console.log(err)));
 });
 
-router.post('/', (req, res) => {
-    
-})
+
+router.post("/", (req, res) => {
+    const tool = req.body;
+  
+    if (tool) {
+      db.insert(tool)
+        .then(tools => {
+          res.status(201).json(tools);
+        })
+        .catch(err => {
+            console.log(err)
+          res.status(500).json({
+            error: "There was an error creating the tool listing"
+          });
+        });
+    } else {
+      res.status(400).json({
+        errorMessage: "Please provide all required fields"
+      });
+    }
+  });
 
 module.exports = router;
