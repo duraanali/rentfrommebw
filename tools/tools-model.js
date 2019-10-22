@@ -5,6 +5,7 @@ module.exports = {
     findTools,
     findToolsById,
     findToolsByUser,
+    updateTool,
     insert,
     destroy
 }
@@ -19,14 +20,14 @@ function findTools() {
     return db('tools as t')
       .join('conditions as con', 'con.id', 't.condition_id')
       .join('categories as cat', 'cat.id', 't.category_id')
-      .select('t.id', 't.user_id as owner_id', 't.title', 't.img_url','t.description', "t.make", "t.model", "t.daily_cost", "t.available", "con.condition", "cat.category")
+      .select('t.*', "con.condition", "cat.category")
   }
 
 function findToolsById(id) {
     return db('tools as t')
       .join('conditions as con', 'con.id', 't.condition_id')
       .join('categories as cat', 'cat.id', 't.category_id')
-      .select('t.id', 't.user_id as owner_id', 't.title', 't.img_url', 't.description', "t.make", "t.model", "t.daily_cost", "t.available", "con.condition", "cat.category")
+      .select('t.*', "con.condition", "cat.category")
       .where( {'t.id': id} )
   }
 
@@ -34,7 +35,7 @@ function findToolsById(id) {
     return db('tools as t')
       .join('conditions as con', 'con.id', 't.condition_id')
       .join('categories as cat', 'cat.id', 't.category_id')
-      .select('t.id', 't.user_id as owner_id', 't.title', 't.description', "t.make", "t.model", "t.daily_cost", "t.available", "t.img_url", "con.condition", "cat.category")
+      .select('t.*', "con.condition", "cat.category")
       .where('t.user_id', id)
   }
 
@@ -52,6 +53,13 @@ function findToolsById(id) {
           .from("conditions")
           .where("condition", tool.condition.toUpperCase())
       })
+  }
+  
+  function updateTool(id, changes) {
+    const { category, condition, ...toolObj } = changes;
+    return db('tools')
+      .where({ id })
+      .update(changes);
   }
 
   function destroy(id) {
