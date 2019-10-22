@@ -4,10 +4,22 @@ exports.seed = function(knex) {
   return knex('categories').truncate()
     .then(function () {
       // Inserts seed entries
-      return knex('categories').insert([
-        {             
-          "category": "power tools"
-      },
+      return knex("categories").insert([
+        {
+          category: "Power Tools"
+        },
+        {
+          category: "Hand Tools"
+        },
+        {
+          category: "Automotive"
+        },
+        {
+          category: "Welding & Soldering"
+        },
+        {
+          category: "Ladders & Scaffolding"
+        }
       ]);
     });
 };
