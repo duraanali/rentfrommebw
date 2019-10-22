@@ -70,6 +70,24 @@ router.post("/", validateToken, (req, res) => {
     }
   });
 
+  router.put('/:id', validateToken, (req, res) => {
+    const changes = req.body;
+    db.updateTool(req.params.id, changes)
+      .then(tool => {
+        if (tool) {
+          res.status(200).json({ message: `Tool ${req.params.id} succesfully updated`});
+        } else {
+          res.status(404).json({ message: 'Tool could not be found' });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json({
+          message: 'Error updating tool',
+        }, error);
+      });
+  });
+
   router.delete("/:id", validateToken, (req, res) => {
     const { id } = req.params;
     db.destroy(id)
