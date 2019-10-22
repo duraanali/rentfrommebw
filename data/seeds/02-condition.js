@@ -7,16 +7,16 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex("conditions").insert([
         {
-          condition: "Excellent"
+          condition: "EXCELLENT"
         },
         {
-          condition: "Good"
+          condition: "GOOD"
         },
         {
-          condition: "Fair"
+          condition: "FAIR"
         },
         {
-          condition: "Poor"
+          condition: "POOR"
         }
       ]);
     });

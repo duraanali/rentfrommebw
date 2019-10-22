@@ -6,19 +6,19 @@ exports.seed = function(knex) {
       // Inserts seed entries
       return knex("categories").insert([
         {
-          category: "Power Tools"
+          category: "POWER TOOLS"
         },
         {
-          category: "Hand Tools"
+          category: "HAND TOOLS"
         },
         {
-          category: "Automotive"
+          category: "AUTOMOTIVE"
         },
         {
-          category: "Welding & Soldering"
+          category: "WELDING & SOLDERING"
         },
         {
-          category: "Ladders & Scaffolding"
+          category: "LADDERS & SCAFFOLDING"
         }
       ]);
     });

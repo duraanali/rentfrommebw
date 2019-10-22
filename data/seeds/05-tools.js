@@ -15,7 +15,7 @@ exports.seed = function(knex) {
           "category_id": 2,
           "daily_cost": 5,
           "available": true,
-          "img_url": 'https://ibb.co/6YJ2V7F'
+          "img_url": 'https://ibb.co/6YJ2V7F.jpg'
       },
       {
         "user_id": 2,
@@ -27,7 +27,7 @@ exports.seed = function(knex) {
         "category_id": 5,
         "daily_cost": 15,
         "available": true,
-        "img_url": 'https://ibb.co/HgC5CsF'
+        "img_url": 'https://ibb.co/HgC5CsF.jpg'
     },
     {
       "user_id": 1,
@@ -39,7 +39,7 @@ exports.seed = function(knex) {
       "category_id": 1,
       "daily_cost": 12,
       "available": true,
-      "img_url": 'https://ibb.co/gvBz0bF'
+      "img_url": 'https://ibb.co/gvBz0bF.jpg'
   },
       ]);
     });

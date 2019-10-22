@@ -38,11 +38,44 @@ function findToolsById(id) {
   }
 
   function insert(tool) {
-    return db('tools')
-      .insert(tool)
+      const { category, condition, ...toolObj } = tool;
+    return db("tools")
+      .insert({
+        ...toolObj,
+        category_id: db
+          .select("id")
+          .from("categories")
+          .where("category", tool.category.toUpperCase()),
+        condition_id: db
+          .select("id")
+          .from("conditions")
+          .where("condition", tool.condition.toUpperCase())
+      })
       .then(ids => {
         return findById(ids[0]);
       });
   }
 
-  //, db.select('id').from('conditions').where('condition', tool.condition)
+  //  function insert(tool) {
+    // return db("tools")
+    //   .insert({
+    //     title: tool.title,
+    //     user_id: tool.user_id,
+    //     description: tool.description,
+    //     make: tool.make,
+    //     model: tool.model,
+    //     daily_cost: tool.daily_cost,
+    //     available: tool.available,
+    //     img_url: tool.img_url,
+    //     category_id: db
+    //       .select("id")
+    //       .from("categories")
+    //       .where("category", tool.category.toUpperCase()),
+    //     condition_id: db
+    //       .select("id")
+    //       .from("conditions")
+    //       .where("condition", tool.condition.toUpperCase())
+    //   })
+    //   .then(ids => {
+    //     return findById(ids[0]);
+    //   });
