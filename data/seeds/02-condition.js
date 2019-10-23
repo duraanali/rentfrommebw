@@ -2,9 +2,9 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex("conditions")
-    .truncate()
-    .then(function() {
+  // return knex("conditions")
+  //   .truncate()
+  //   .then(function() {
       // Inserts seed entries
       return knex("conditions").insert([
         {
@@ -20,5 +20,5 @@ exports.seed = function(knex) {
           condition: "POOR"
         }
       ]);
-    });
+    // });
 };

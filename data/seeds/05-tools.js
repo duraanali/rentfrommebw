@@ -1,8 +1,8 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('tools').truncate()
-    .then(function () {
+  // return knex('tools').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex('tools').insert([
         {
@@ -42,5 +42,5 @@ exports.seed = function(knex) {
       "img_url": 'https://ibb.co/gvBz0bF.jpg'
   },
       ]);
-    });
+    // });
 };

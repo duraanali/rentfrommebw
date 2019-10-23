@@ -1,8 +1,8 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('rentals').truncate()
-    .then(function () {
+  // return knex('rentals').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex("rentals").insert([
         {
@@ -27,5 +27,5 @@ exports.seed = function(knex) {
           renter_id: 1
         }
       ]);
-    });
+    // });
 };

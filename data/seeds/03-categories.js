@@ -1,8 +1,8 @@
 
 exports.seed = function(knex) {
   // Deletes ALL existing entries
-  return knex('categories').truncate()
-    .then(function () {
+  // return knex('categories').truncate()
+  //   .then(function () {
       // Inserts seed entries
       return knex("categories").insert([
         {
@@ -21,5 +21,5 @@ exports.seed = function(knex) {
           category: "LADDERS & SCAFFOLDING"
         }
       ]);
-    });
+    // });
 };
