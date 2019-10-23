@@ -116,6 +116,25 @@ router.post("/tools", validateToken, (req, res) => {
       .catch(err => res.status(500).json(console.log(err), err));
   });
 
+  router.put('/rentals/:id', validateToken, (req, res) => {
+    const changes = req.body;
+    rentaldb.update(req.params.id, changes)
+      .then(rental => {
+        if (rental) {
+          res.status(200).json(rental);
+        } else {
+          res.status(404).json({ message: 'The rental could not be found' });
+        }
+      })
+      .catch(error => {
+        console.log(error);
+        res.status(500).json({
+          message: 'Error updating rental',
+        }, error);
+      });
+  });
+
+
   router.get("/rentals/:id", validateToken, (req, res) => {
     const { id } = req.params;
     rentaldb.findById(id)
