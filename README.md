@@ -38,6 +38,11 @@ Tired of loaning out your tools to a neighbor and losing them? Use My Tools help
 
 # API Documentation
 
+## Tool Endpoints
+
+### PUT By Tool Id *requires token in header*
+`https://usemytoolsbw.herokuapp.com/api/tools` 
+
 ## Rental Endpoints _ **ALL REQUIRE TOKEN**
 
 ### GET All Rental Listings
