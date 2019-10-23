@@ -40,12 +40,38 @@ Tired of loaning out your tools to a neighbor and losing them? Use My Tools help
 
 ## Tool Endpoints
 
-### PUT By Tool Id *requires token in header*
-`https://usemytoolsbw.herokuapp.com/api/tools` 
+### GET All Tool Listings 
+`https://usemytoolsbw.herokuapp.com/api/tools`
 
-## Rental Endpoints _ **ALL REQUIRE TOKEN**
+### GET Tool by ID 
+`https://usemytoolsbw.herokuapp.com/api/tools/:id`
 
-### GET All Rental Listings
+### GET Tools by User 
+`https://usemytoolsbw.herokuapp.com/api/tools/user/:id`
+
+### POST New Tool **requires token in header**
+`https://usemytoolsbw.herokuapp.com/api/tools`
+```
+  {
+    "user_id": 2,
+    "title": "Ladder",
+    "description": "Donizzle mah nizzle dui. Fizzle risizzle boofron, elementum consectetizzle, sollicitudizzle in, consequat imperdizzle, turpis. You son of a bizzle a ipsum away mi fizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle. Curabitizzle brizzle sagittizzle break it down.",
+    "make": "Ladders R Us",
+    "model": "L10FT",
+    "img_url": "ladderpic.jpg",
+    "daily_cost": 15,
+    "available": true,
+    "condition": "Good",
+    "category":  "Ladders & Scaffolding"
+  }
+  ```
+
+### PUT Edit a Tool Listing **requires token in header**
+`https://usemytoolsbw.herokuapp.com/api/tools/:id` 
+
+## Rental Endpoints  **ALL REQUIRE TOKEN**
+
+### GET All Rental Bookings
 `https://usemytoolsbw.herokuapp.com/api/rentals`
 
 ### GET By Rental ID 
@@ -56,10 +82,10 @@ Tired of loaning out your tools to a neighbor and losing them? Use My Tools help
 
 ### GET By Owner's UserId 
 `https://usemytoolsbw.herokuapp.com/api/rentals/owner/:id`
-### DEL Rental Listing
+### DEL Rental Bookings
 `https://usemytoolsbw.herokuapp.com/api/rentals/:id`
 
-### PUT Edit Rental Listing
+### PUT Edit Rental Bookings
 `https://usemytoolsbw.herokuapp.com/api/rentals/:id`
 
 ### POST 
