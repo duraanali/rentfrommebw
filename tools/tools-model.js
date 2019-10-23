@@ -57,27 +57,7 @@ function findToolsById(id) {
   
   function updateTool(id, changes) {
     const { category, condition, ...toolObj } = changes;
-    if (changes.category) {
-      return db("tools")
-        .where({ id })
-        .update({
-          ...toolObj,
-          category_id: db
-            .select("id")
-            .from("categories")
-            .where("category", changes.category.toUpperCase())
-        });
-    } else if (changes.condition) {
-      return db("tools")
-        .where({ id })
-        .update({
-          ...toolObj,
-          condition_id: db
-            .select("id")
-            .from("conditions")
-            .where("condition", changes.condition.toUpperCase())
-        });
-    } else if (changes.condition && changes.category) {
+    if (changes.condition && changes.category) {
       return db("tools")
         .where({ id })
         .update({
@@ -90,6 +70,27 @@ function findToolsById(id) {
             .select("id")
             .from("conditions")
             .where("condition", tool.condition.toUpperCase())
+        });
+    
+    } else if (changes.condition) {
+      return db("tools")
+        .where({ id })
+        .update({
+          ...toolObj,
+          condition_id: db
+            .select("id")
+            .from("conditions")
+            .where("condition", changes.condition.toUpperCase())
+        });
+    } else if (changes.category) {
+      return db("tools")
+        .where({ id })
+        .update({
+          ...toolObj,
+          category_id: db
+            .select("id")
+            .from("categories")
+            .where("category", changes.category.toUpperCase())
         });
     } else {
       return db("tools")
