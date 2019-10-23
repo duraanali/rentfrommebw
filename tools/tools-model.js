@@ -57,7 +57,9 @@ function findToolsById(id) {
   
   function updateTool(id, changes) {
     const { category, condition, ...toolObj } = changes;
-    if (changes.condition && changes.category) {
+    if (changes.category && changes.condition) {
+      console.log(typeof changes.condition)
+      console.log(typeof changes.category)
       return db("tools")
         .where({ id })
         .update({
@@ -73,6 +75,7 @@ function findToolsById(id) {
         });
     
     } else if (changes.condition) {
+      console.log(changes.condition)
       return db("tools")
         .where({ id })
         .update({

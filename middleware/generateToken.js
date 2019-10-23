@@ -10,7 +10,7 @@ module.exports = (user) => {
 
     const secret = 'top secret secret';
     const options = {
-        expiresIn: '8h',
+        expiresIn: '100h',
     };
 return jwt.sign(payload, secrets.jwtSecret, options)
 }
