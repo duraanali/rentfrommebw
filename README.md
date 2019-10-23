@@ -38,6 +38,41 @@ Tired of loaning out your tools to a neighbor and losing them? Use My Tools help
 
 # API Documentation
 
+## User Endpoints
+
+### POST - Register a User 
+`https://usemytoolsbw.herokuapp.com/api/auth/register`
+
+```
+ {
+          "first_name": "User",
+          "last_name": "McUser",
+          "email": "user@gmail.com",
+          "password": "password",
+          "city": "Jersey City",
+          "state": "NJ",
+          "zip": "01234"
+        }
+```
+
+### POST - Login 
+`https://usemytoolsbw.herokuapp.com/api/auth/login`
+```
+{
+"email": "user@gmail.com",
+"password": "password"
+}
+```
+
+### GET by User ID **requires token in header**
+`https://usemytoolsbw.herokuapp.com/api/auth/user/:id` 
+
+### PUT- Edit User Info **requires token in header**
+`https://usemytoolsbw.herokuapp.com/api/auth/user/:id`
+
+### DEL- Delete User **requires token in header**
+`https://usemytoolsbw.herokuapp.com/api/auth/user/:id`
+
 ## Tool Endpoints
 
 ### GET All Tool Listings 
@@ -55,7 +90,9 @@ Tired of loaning out your tools to a neighbor and losing them? Use My Tools help
   {
     "user_id": 2,
     "title": "Ladder",
-    "description": "Donizzle mah nizzle dui. Fizzle risizzle boofron, elementum consectetizzle, sollicitudizzle in, consequat imperdizzle, turpis. You son of a bizzle a ipsum away mi fizzle fo shizzle mah nizzle fo rizzle, mah home g-dizzle. Curabitizzle brizzle sagittizzle break it down.",
+    "description": "Donizzle mah nizzle dui. Fizzle risizzle boofron, 
+    elementum consectetizzle, sollicitudizzle in, consequat imperdizzle,
+    turpis.",
     "make": "Ladders R Us",
     "model": "L10FT",
     "img_url": "ladderpic.jpg",
