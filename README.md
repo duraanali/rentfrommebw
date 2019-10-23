@@ -36,28 +36,28 @@ Tired of loaning out your tools to a neighbor and losing them? Use My Tools help
 - Add a way to charge a fee for tools to be borrowed.
 
 
-### API Documentation
+# API Documentation
 
 ## Rental Endpoints _ **ALL REQUIRE TOKEN**
 
-# GET All Rental Listings
+### GET All Rental Listings
 `https://usemytoolsbw.herokuapp.com/api/rentals`
 
-# GET By Rental ID 
+### GET By Rental ID 
 `https://usemytoolsbw.herokuapp.com/api/rentals/:id`
 
-# GET By Renter's UserId 
+### GET By Renter's UserId 
 `https://usemytoolsbw.herokuapp.com/api/rentals/renter/:id`
 
-# GET By Owner's UserId 
+### GET By Owner's UserId 
 `https://usemytoolsbw.herokuapp.com/api/rentals/owner/:id`
-# DEL Rental Listing
+### DEL Rental Listing
 `https://usemytoolsbw.herokuapp.com/api/rentals/:id`
 
-# PUT Edit Rental Listing
+### PUT Edit Rental Listing
 `https://usemytoolsbw.herokuapp.com/api/rentals/:id`
 
-# POST 
+### POST 
 `https://usemytoolsbw.herokuapp.com/api/rentals` 
 Schema looks like:
   ```{
