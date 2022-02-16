@@ -11,33 +11,33 @@ module.exports = {
 
 
 function findUsers() {
-    return db('users');
+    return db('owners');
   }
 
 function findBy(filter) {
-  return db('users').where(filter);
+  return db('owners').where(filter);
 }
 
 function add(user) {
-    return db('users')
+    return db('owners')
       .insert(user, 'id')
       .then(ids => ({ id: ids[0] }));
   }
 
 function findById(id) {
-  return db('users')
+  return db('owners')
     .where({ id })
     .first();
 }
 
 function update(id, changes) {
-  return db('users')
+  return db('owners')
     .where({ id })
     .update(changes);
 }
 
 function destroy(id) {
-  return db('users')
+  return db('owners')
     .where('id', id)
     .del();
 }

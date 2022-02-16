@@ -1,12 +1,12 @@
 const router = require('express').Router();
-const db = require('../auth/auth-model.js');
+const db = require('./renters-model.js');
 const bcrypt = require('bcryptjs');
 const generateToken = require('../middleware/generateToken.js');
 const validateToken = require('../middleware/validateToken.js');
 
-
+// --- Owner ---- //
 //GET
-router.get('/users', validateToken, (req, res) => {
+router.get('/', validateToken, (req, res) => {
   db.findUsers()
     .then(users => {
       res.json({ loggedInUser: req.username, users });
@@ -14,7 +14,7 @@ router.get('/users', validateToken, (req, res) => {
     .catch(err => res.send(err));
 });
 
-router.get('/user/:id', (req, res) => {
+router.get('/:id', (req, res) => {
   const { id } = req.params;
   db.findById(id)
   .then(user => {
@@ -69,7 +69,7 @@ router.post('/register', (req, res) => {
   });
 
   //PUT
-  router.put('/user/:id', validateToken, (req, res) => {
+  router.put('/:id', validateToken, (req, res) => {
     const changes = req.body;
     db.update(req.params.id, changes)
       .then(user => {
@@ -88,7 +88,7 @@ router.post('/register', (req, res) => {
   });
 
   //DELETE
-  router.delete('/user/:id', validateToken, (req, res) => {
+  router.delete('/:id', validateToken, (req, res) => {
     db.destroy(req.params.id)
       .then(count => {
         if (count > 0) {
@@ -104,5 +104,7 @@ router.post('/register', (req, res) => {
         }, error);
       });
   });
+
+
 
 module.exports = router;

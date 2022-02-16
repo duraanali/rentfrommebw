@@ -1,7 +1,7 @@
 {
   "name": "backend",
   "version": "1.0.0",
-  "description": "backend for Use My Tools, a project in Lambda School's build week 10/18/2019 - 10/24/2019",
+  "description": "Rent from me",
   "main": "index.js",
   "scripts": {
     "server": "nodemon index.js",
@@ -10,14 +10,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Use-My-Tools-BW/backend.git"
+    "url": ""
   },
-  "author": "Julie Antonio",
+  "author": "Duraan",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Use-My-Tools-BW/backend/issues"
+    "url": ""
   },
-  "homepage": "https://github.com/Use-My-Tools-BW/backend#readme",
+  "homepage": "",
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
