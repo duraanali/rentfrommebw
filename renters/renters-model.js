@@ -18,11 +18,14 @@ function findBy(filter) {
   return db('renters').where(filter);
 }
 
+// add a new renter to the database
 function add(user) {
-    return db('renters')
-      .insert(user, 'id')
-      .then(ids => ({ id: ids[0] }));
+  return db('renters')
+  .insert(user, 'id')
+  .then(ids => ({ id: ids[0] }));
   }
+
+
 
 function findById(id) {
   return db('renters')

@@ -3,16 +3,16 @@ exports.up = function(knex) {
     return knex.schema
     .createTable('owners', function(owners){
         owners.increments();
-        owners.string('first_name').notNullable();
-        owners.string('last_name').notNullable();
+        owners.string('first_name');
+        owners.string('last_name');
         owners.string('email').unique().notNullable();
         owners.string('password').notNullable();
         owners.timestamps(true, true);
     })
     .createTable('renters', function(renters){
         renters.increments();
-        renters.string('first_name').notNullable();
-        renters.string('last_name').notNullable();
+        renters.string('first_name');
+        renters.string('last_name');
         renters.string('email').unique().notNullable();
         renters.string('password').notNullable();
         renters.timestamps(true, true);
