@@ -5,7 +5,7 @@ const generateToken = require('../middleware/generateToken.js');
 const validateToken = require('../middleware/validateToken.js');
 const rentaldb = require('../rentals/rentals-model.js');
 
-router.get("/rentals", validateToken,  (req, res) => {
+router.get("/", validateToken,  (req, res) => {
     rentaldb.find()
       .then(rentals => {
         res.status(200).json(rentals);
@@ -14,7 +14,7 @@ router.get("/rentals", validateToken,  (req, res) => {
       .catch(err => res.status(500).json(console.log(err), err));
   });
 
-  router.put('/rentals/:id', validateToken, (req, res) => {
+  router.put('/:id', validateToken, (req, res) => {
     const changes = req.body;
     rentaldb.update(req.params.id, changes)
       .then(rental => {
@@ -33,7 +33,7 @@ router.get("/rentals", validateToken,  (req, res) => {
   });
 
 
-  router.get("/rentals/:id", validateToken, (req, res) => {
+  router.get("/:id", validateToken, (req, res) => {
     const { id } = req.params;
     rentaldb.findById(id)
     .then(rentals => {
@@ -47,7 +47,7 @@ router.get("/rentals", validateToken,  (req, res) => {
     .catch(err => res.status(500).json(console.log(err), err));
 })
 
-router.get("/rentals/renter/:id", validateToken, (req, res) => {
+router.get("/renter/:id", validateToken, (req, res) => {
   const { id }  = req.params;
   rentaldb.findByRenter(id)
   .then(rental => {
@@ -91,7 +91,7 @@ router.get("/rentalsraw", (req, res) => {
     .catch(err => res.status(500).json(console.log(err), err));
 });
 
-router.delete("/rentals/:id", validateToken, (req, res) => {
+router.delete("/:id", validateToken, (req, res) => {
   const { id } = req.params;
   rentaldb.destroy(id)
     .then(rental => {
